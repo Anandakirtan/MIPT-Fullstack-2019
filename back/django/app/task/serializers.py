@@ -1,9 +1,9 @@
 from rest_framework import serializers
 from .models import Task
 
-class TaskSerializer(serializers.HyperlinkedModelSerializer):
+class TaskSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Task
-        fields = ('id', 'name', 'description', 'deadline')
-        #read_only_fields = ('owner', )
+        fields = ('id', 'name', 'description', 'deadline', 'owner', )
+        read_only_fields = ('owner', )

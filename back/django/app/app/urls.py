@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from task.views import TaskViewSet
+from task.views import TaskViewSet, TaskSelfViewSet
+from folder.views import FolderViewSet, FolderSelfViewSet
 
 router = routers.DefaultRouter()
 router.register('tasks', TaskViewSet)
+router.register('my_tasks', TaskSelfViewSet)
+router.register('folders', FolderViewSet)
+router.register('my_folders', FolderSelfViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
