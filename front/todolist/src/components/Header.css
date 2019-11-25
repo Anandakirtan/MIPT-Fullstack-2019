@@ -1,15 +1,29 @@
 header {
     position: fixed;
     display: flex;
+    justify-content: center;
     top: 0;
+    left: 0;
     height: 45px;
     width: 100% ;
     background-color: #303030;
     box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15);
+}
+
+
+#inner-header {
+    display: flex;
     justify-content: left;
-  }
-  
-  .header-item {
+    width: 950px;
+}
+
+.header-item {
     margin-top: 7px;
     font-size: 25px;
-  }
+}
+
+#settings_button {
+    margin-top: 15px;
+    margin-left: 650px;
+    font-size: 15px;
+}

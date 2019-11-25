@@ -1,12 +1,13 @@
 import React from 'react'
 import './TaskList.css'
+import Task from './Task' 
 
 function TaskList() {
     return (
-        <ul class="task_list">
-            <li class="task">Придумать идею</li>
-            <li class="task">Сверстать страницу</li>
-            <li class="task">Запилить React</li>
+        <ul className="task_list">
+            <li><Task /></li>
+            <li><Task /></li>
+            <li><Task /></li>
         </ul>
     )
 }

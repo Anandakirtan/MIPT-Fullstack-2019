@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 import Header from './components/Header'
 import FolderList from './components/FolderList'
 import TaskList from './components/TaskList'
