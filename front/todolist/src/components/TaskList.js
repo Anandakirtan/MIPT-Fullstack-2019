@@ -5,9 +5,9 @@ import Task from './Task'
 function TaskList() {
     return (
         <ul className="task_list">
-            <li><Task /></li>
-            <li><Task /></li>
-            <li><Task /></li>
+            <Task text='First task'/>
+            <Task text='Second task'/>
+            <Task text='Afternoon murder'/>
         </ul>
     )
 }

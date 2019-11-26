@@ -22,8 +22,12 @@ header {
     font-size: 25px;
 }
 
+#title {
+    margin-left: 5px;
+}
+
 #settings_button {
     margin-top: 15px;
-    margin-left: 650px;
+    margin-left: 645px;
     font-size: 15px;
 }

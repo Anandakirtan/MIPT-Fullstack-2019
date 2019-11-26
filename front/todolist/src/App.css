@@ -7,15 +7,12 @@
 
 #side_bar {
   width: 30%;
+  height: calc(100vh - 44px);
+  background-color: rgb(35,35,35);
 }
 
 #main_body {
   width: 70%;
   height: calc(100vh - 44px);
   background-color: rgb(31,31,31);
-}
-
-.folder {
-  padding: 9px 15px;
-  font-size: 14px;
 }

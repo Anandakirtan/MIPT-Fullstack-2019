@@ -1,12 +1,13 @@
 import React from 'react'
+import Folder from './Folder'
 import './FolderList.css'
 
 function FolderList() {
     return (
         <ul className="folder_list">
-            <li className="folder">Папка 1</li>
-            <li className="folder">Папка 2</li>
-            <li className="folder">Папка 3</li>
+            <Folder name='Frontend'/>
+            <Folder name='Backendend'/>
+            <Folder name='Murders'/>
         </ul>
     )
 }
