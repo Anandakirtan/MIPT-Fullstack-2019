@@ -18,14 +18,22 @@ from django.urls import path, include
 from rest_framework import routers
 from task.views import TaskViewSet, TaskSelfViewSet
 from folder.views import FolderViewSet, FolderSelfViewSet
+from core.views import UserViewSet
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 router = routers.DefaultRouter()
 router.register('tasks', TaskViewSet)
 router.register('my_tasks', TaskSelfViewSet)
 router.register('folders', FolderViewSet)
 router.register('my_folders', FolderSelfViewSet)
+router.register('users', UserViewSet, 'users')
 
 urlpatterns = [
     path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
