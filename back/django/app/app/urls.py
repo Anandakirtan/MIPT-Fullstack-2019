@@ -26,9 +26,9 @@ from rest_framework_simplejwt.views import (
 
 router = routers.DefaultRouter()
 router.register('tasks', TaskViewSet)
-router.register('my_tasks', TaskSelfViewSet)
+#router.register('my_tasks', TaskSelfViewSet)
 router.register('folders', FolderViewSet)
-router.register('my_folders', FolderSelfViewSet)
+#router.register('my_folders', FolderSelfViewSet)
 router.register('users', UserViewSet, 'users')
 
 urlpatterns = [
