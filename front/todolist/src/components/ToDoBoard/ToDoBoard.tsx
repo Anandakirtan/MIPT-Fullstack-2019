@@ -13,7 +13,7 @@ const ToDoBoard: React.FC = () => {
   return (
     <div className="ToDoBoard">
       <Header />
-      {getIsAuth() && (
+      {getIsAuth() ? (
         <S.ContentWrapper>
           <S.SideBar>
             <FolderList />
@@ -22,6 +22,8 @@ const ToDoBoard: React.FC = () => {
             <TaskList />
           </S.MainBody>
         </S.ContentWrapper>
+      ) : (
+        window.location.href = '/'
       )}
     </div>
   );

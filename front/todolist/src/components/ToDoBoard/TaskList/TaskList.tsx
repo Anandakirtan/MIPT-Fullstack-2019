@@ -2,6 +2,8 @@ import React from 'react'
 import * as S from './styled'
 import Task from '../Task/Task' 
 import getIsAuth from '../../../utils/getIsAuth'
+import TaskBlock from './TaskBlock/TaskBlock'
+
 
 export interface ITask {
     name : string
@@ -10,14 +12,21 @@ export interface ITask {
     owner = models.ForeignKey(User, on_delete=models.CASCADE)*/
 }
 
+export interface IFolder {
+  id: number
+  name : string
+  task_set: ITask[]
+}
+
 function TaskList() {
-  const [tasks, setTasks] = React.useState<ITask[]>([])
+  //const [tasks, setTasks] = React.useState<ITask[]>([])
 
   React.useEffect(() => {
-    void taskGet()
+    //void taskGet()
+    void folderGet()
   }, [])
 
-  const taskGet = React.useCallback(async () => {
+  /*const taskGet = React.useCallback(async () => {
     const response = await fetch('http://localhost:8000/api/my_tasks/', {
       headers: {
         'Authorization' : `Bearer ${window.localStorage.getItem('access')}`
@@ -26,34 +35,53 @@ function TaskList() {
     const data = await response.json()
 
     setTasks(data)
+  }, [])*/
+
+  const [folders, setFolders] = React.useState<IFolder[]>([])
+
+  const folderGet = React.useCallback(async () => {
+    const response = await fetch('http://localhost:8000/api/my_folders/', {
+      headers: {
+        'Authorization' : `Bearer ${window.localStorage.getItem('access')}`
+      }
+    })
+    const data = await response.json()
+
+    setFolders(data)
   }, [])
 
   const [newTask, setNewTask] = React.useState('')
+  const [folder_id, set_folder_id] = React.useState('')
 
   const onSubmit = React.useCallback(
     async (event) => {
       event.preventDefault()
       const data = JSON.stringify({
          newTask,
+         folder_id
       })
-
-      await fetch('http://localhost:8000/api/my_tasks/', {
+      console.log(newTask)
+      console.log(folder_id)
+      await fetch('http://localhost:8000/api/tasks/', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
           'Authorization' : `Bearer ${window.localStorage.getItem('access')}`
         },
-        body: JSON.stringify({name: newTask, folder: 4})
+        body: JSON.stringify({name: newTask, folder: folder_id})
       })
     },
-    [newTask]
+    [newTask, folder_id]
   )
 
+  
   return (
       <S.TaskList>
-          {tasks.map((task, index) => (
-            <Task key={index} text={task.name}/>
+
+          {folders.map((folder, index) => (
+            <TaskBlock {...folder}/>
           ))}
+          
           <S.TaskAdd>
             <input
               type="text"
@@ -63,9 +91,20 @@ function TaskList() {
               value={newTask}
               onChange={(event) => setNewTask(event.target.value)}
             />
+
+            <select onChange={(event) => set_folder_id(event.target.value)}>
+              <option> </option>
+              {folders.map((folder, index) => (
+                <option key={index} value={folder.id}>
+                  {folder.name}
+                </option>
+              ))}
+            </select>
+
             <button type="submit" onClick={onSubmit}>
               Добавить
             </button>
+
           </S.TaskAdd>
       </S.TaskList>
   )

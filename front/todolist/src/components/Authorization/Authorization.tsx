@@ -31,7 +31,7 @@ const Authorization: React.FC<ILoginProps> = (props) => {
 
       window.localStorage.setItem('access', access)
       window.localStorage.setItem('refresh', refresh)
-      window.location.href = '/'
+      window.location.href = '/board'
     },
     [username, password]
   )

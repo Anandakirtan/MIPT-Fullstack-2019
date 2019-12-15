@@ -8,7 +8,7 @@ const Header: React.FC = () => {
         <S.Header>
             <S.InnerHeader>
                 <S.Title>Ежедневник</S.Title>
-                <Link to="/auth"><S.Settings src={cogwheelImage}/></Link>
+                <Link to="/"><S.Settings src={cogwheelImage}/></Link>
             </S.InnerHeader>
         </S.Header>
     )

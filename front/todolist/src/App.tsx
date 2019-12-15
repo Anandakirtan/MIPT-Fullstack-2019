@@ -7,9 +7,9 @@ import Authorization from './components/Authorization/Authorization'
 const App: React.FC = () => {
   return (
     <Router>
-      <Route path="/auth" component={Authorization}/>
+      <Route path="/board" component={ToDoBoard}/>
       <Route path="/registration" component={Registration}/>
-      <Route path="/" exact component={ToDoBoard}/>
+      <Route path="/" exact component={Authorization}/>
     </Router>
   );
 }

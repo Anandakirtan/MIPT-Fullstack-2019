@@ -22,6 +22,7 @@ const Registration: React.FC = () => {
         },
         body: data
       })
+      window.location.href = '/'
     },
     [username, password, email]
   )

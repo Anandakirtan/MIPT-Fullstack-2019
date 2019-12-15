@@ -46,6 +46,7 @@ function FolderList() {
       [newFolder]
     )
 
+    
     return (
         <S.FolderList>
             {folders.map((folder, index) => (
