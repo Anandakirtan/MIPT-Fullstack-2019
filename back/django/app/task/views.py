@@ -4,7 +4,7 @@ from rest_framework import viewsets, mixins
 from .models import Task
 from .serializers import TaskSerializer
 
-class TaskViewSet(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin):
+class TaskViewSet(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.CreateModelMixin):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
 
