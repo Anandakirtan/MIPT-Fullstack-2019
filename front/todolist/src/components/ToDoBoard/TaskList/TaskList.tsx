@@ -18,7 +18,7 @@ function TaskList() {
   }, [])
 
   const taskGet = React.useCallback(async () => {
-    const response = await fetch('http://localhost:8000/api/tasks/', {
+    const response = await fetch('http://localhost:8000/api/my_tasks/', {
       headers: {
         'Authorization' : `Bearer ${window.localStorage.getItem('access')}`
       }
@@ -33,17 +33,17 @@ function TaskList() {
   const onSubmit = React.useCallback(
     async (event) => {
       event.preventDefault()
-      // const data = JSON.stringify({
-      //   newTask,
-      // })
+      const data = JSON.stringify({
+         newTask,
+      })
 
-      await fetch('http://localhost:8000/api/tasks/', {
+      await fetch('http://localhost:8000/api/my_tasks/', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
           'Authorization' : `Bearer ${window.localStorage.getItem('access')}`
         },
-        body: JSON.stringify({newTask})
+        body: JSON.stringify({name: newTask, folder: 4})
       })
     },
     [newTask]

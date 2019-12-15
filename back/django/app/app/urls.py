@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from task.views import TaskViewSet#, TaskSelfViewSet
-from folder.views import FolderViewSet#, FolderSelfViewSet
+from task.views import TaskViewSet, TaskSelfViewSet
+from folder.views import FolderViewSet, FolderSelfViewSet
 from core.views import UserViewSet
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -25,10 +25,10 @@ from rest_framework_simplejwt.views import (
 )
 
 router = routers.DefaultRouter()
-router.register('tasks', TaskViewSet)
-#router.register('my_tasks', TaskSelfViewSet)
-router.register('folders', FolderViewSet)
-#router.register('my_folders', FolderSelfViewSet)
+router.register('tasks', TaskViewSet, base_name='tasks')
+router.register('my_tasks', TaskSelfViewSet)
+router.register('folders', FolderViewSet, base_name='folders')
+router.register('my_folders', FolderSelfViewSet)
 router.register('users', UserViewSet, 'users')
 
 urlpatterns = [

@@ -1,6 +1,7 @@
 import React from 'react'
 import Folder from '../Folder/Folder'
 import * as S from './styled'
+import ApiClientService from '../../../services/ApiClientService'
 
 export interface IFolder {
     name : string
@@ -14,7 +15,7 @@ function FolderList() {
     }, [])
   
     const folderGet = React.useCallback(async () => {
-      const response = await fetch('http://localhost:8000/api/folders/', {
+      const response = await fetch('http://localhost:8000/api/my_folders/', {
         headers: {
           'Authorization' : `Bearer ${window.localStorage.getItem('access')}`
         }
@@ -33,13 +34,13 @@ function FolderList() {
           newFolder,
         })
   
-        await fetch('http://localhost:8000/api/folders/', {
+        await fetch('http://localhost:8000/api/my_folders/', {
           method: 'post',
           headers: {
             'Content-Type': 'application/json',
             'Authorization' : `Bearer ${window.localStorage.getItem('access')}`
           },
-          body: data
+          body: JSON.stringify({name: newFolder})
         })
       },
       [newFolder]

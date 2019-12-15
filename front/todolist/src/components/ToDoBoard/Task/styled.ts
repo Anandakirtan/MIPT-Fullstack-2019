@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Task = styled.li `
-  padding: 10px 15px;
+  padding: 0 15px;
   font-size: 16px;
   position: relative;
   display: flex;

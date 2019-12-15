@@ -6,6 +6,7 @@ export const TaskList = styled.ul `
 `
 
 export const Section = styled.section`
+  margin-top: 10px;
   width: 100%;
 `
 

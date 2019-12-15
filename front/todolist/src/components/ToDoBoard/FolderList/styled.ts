@@ -4,6 +4,7 @@ export const FolderList = styled.ul`
   padding-top: 30px;
   padding-left: 30px;
   background: #222222;
+  list-style-type: none;
 `
 
 export const Section = styled.section`
