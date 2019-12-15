@@ -7,7 +7,7 @@ interface ILoginProps {
 }
 
 const Authorization: React.FC<ILoginProps> = (props) => {
-  const { history } = props
+  localStorage.clear()
 
   const [username, setUsername] = React.useState('')
   const [password, setPassword] = React.useState('')
