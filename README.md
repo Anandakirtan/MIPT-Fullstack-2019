@@ -1,3 +1,3 @@
-# To-Do List website
+# To-Do List
 
-An assignment for the MIPT FullSatck course.
+A simple To-Do list website. Created using **Django** for the backend and **HTML**, **Styled Components** and **React** for the frontend.  
